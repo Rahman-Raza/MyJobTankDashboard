@@ -36,6 +36,7 @@ class NavPills extends React.Component {
       horizontal,
       alignCenter
     } = this.props;
+
     const flexContainerClasses =
       classes.flexContainer +
       " " +
@@ -48,7 +49,7 @@ class NavPills extends React.Component {
           root: classes.root,
           fixed: classes.fixed,
           flexContainer: flexContainerClasses,
-          indicator: classes.displayNone,
+          indicator: classes.displayNone
         }}
         value={this.state.active}
         onChange={this.handleChange}
@@ -75,7 +76,8 @@ class NavPills extends React.Component {
                 root: pillsClasses,
                 labelContainer: classes.labelContainer,
                 label: classes.label,
-                textColorInheritSelected: classes[color]
+                textColorInheritSelected: classes[color],
+                selected: "selected"
               }}
             />
           );

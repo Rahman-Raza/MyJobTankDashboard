@@ -16,11 +16,11 @@ const regularCardStyle = {
   },
   cardTitle: {
     ...defaultFont,
-    color: "#3C4858",
+    color: "#088390",
     textDecoration: "none",
     marginTop: "0",
     marginBottom: "3px",
-    fontSize: "1.3em",
+    fontSize: "25px",
     "& small": {
       fontWeight: "400",
       lineHeight: "1",

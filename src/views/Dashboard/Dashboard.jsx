@@ -289,11 +289,9 @@ class Dashboard extends React.Component {
               content={
                 <NavPills
                   color="warning"
-                  alignCenter
                   tabs={[
                     {
-                      tabButton: "New",
-                      tabIcon: AddAlert,
+                      tabButton: "New Positions",
                       tabContent: (
                         <div>
                           <GridContainer>
@@ -318,8 +316,7 @@ class Dashboard extends React.Component {
                       )
                     },
                     {
-                      tabButton: "Open",
-                      tabIcon: Input,
+                      tabButton: "Open Positions",
                       tabContent: (
                         <div>
                           <GridContainer>
@@ -344,8 +341,7 @@ class Dashboard extends React.Component {
                       )
                     },
                     {
-                      tabButton: "Closed",
-                      tabIcon: Cancel,
+                      tabButton: "Closed Positions",
                       tabContent: (
                         <div>
                           <GridContainer>

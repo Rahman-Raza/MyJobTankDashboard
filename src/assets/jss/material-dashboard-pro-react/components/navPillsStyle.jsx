@@ -34,18 +34,17 @@ const navPillsStyle = theme => ({
     display: "block"
   },
   pills: {
-    float: "left",
-    position: "relative",
+    color: "#088390",
     display: "block",
-    borderRadius: "30px",
+    float: "left",
+    height: "auto",
+    maxWidth: "100%",
     minWidth: "100px",
+    opacity: "1",
+    padding: "10px 15px",
+    position: "relative",
     textAlign: "center",
     transition: "all .3s",
-    padding: "10px 15px",
-    color: "#555555",
-    height: "auto",
-    opacity: "1",
-    maxWidth: "100%"
   },
   pillsWithIcons: {
     borderRadius: "4px"
@@ -68,13 +67,13 @@ const navPillsStyle = theme => ({
     color: "inherit"
   },
   label: {
-    lineHeight: "24px",
-    textTransform: "uppercase",
-    fontSize: "12px",
-    fontWeight: "500",
-    position: "relative",
+    color: "inherit",
     display: "block",
-    color: "inherit"
+    fontSize: "16px",
+    fontWeight: "400",
+    lineHeight: "24px",
+    position: "relative",
+    textTransform: "capitalize"
   },
   contentWrapper: {
     marginTop: "20px"

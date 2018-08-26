@@ -2159,15 +2159,16 @@ html * {
   -moz-osx-font-smoothing: grayscale; }
 
 body {
-  background-color: #EEEEEE;
-  color: #3C4858;
+  background-color: #eeeeee;
+  color: #3c4858;
   margin: 0;
   font-family: Roboto, Helvetica, Arial, sans-serif;
   font-weight: 300;
   line-height: 1.5em; }
 
-blockquote footer:before, blockquote small:before {
-  content: '\2014 \00A0'; }
+blockquote footer:before,
+blockquote small:before {
+  content: "\2014 \00A0"; }
 
 h1 {
   font-size: 3em;
@@ -2197,7 +2198,9 @@ h6 {
   text-transform: uppercase;
   font-weight: 500; }
 
-h4, h5, h6 {
+h4,
+h5,
+h6 {
   margin-top: 10px;
   margin-bottom: 10px; }
 
@@ -2205,14 +2208,20 @@ p {
   margin: 0 0 10px; }
 
 body {
-  background-color: #EEEEEE;
-  color: #3C4858;
+  background-color: #eeeeee;
+  color: #3c4858;
   font-size: 14px; }
 
 blockquote p {
   font-style: italic; }
 
-body, h1, h2, h3, h4, h5, h6 {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-weight: 300;
   line-height: 1.5em; }
@@ -2221,7 +2230,8 @@ a {
   color: #9c27b0;
   text-decoration: none; }
 
-a:hover, a:focus {
+a:hover,
+a:focus {
   color: #89229b;
   text-decoration: none; }
 
@@ -2235,8 +2245,11 @@ legend {
 *:focus {
   outline: 0; }
 
-a:focus, a:active,
-button:active, button:focus, button:hover,
+a:focus,
+a:active,
+button:active,
+button:focus,
+button:hover,
 button::-moz-focus-inner,
 input[type="reset"]::-moz-focus-inner,
 input[type="button"]::-moz-focus-inner,
@@ -2257,7 +2270,7 @@ output {
 label {
   font-size: 14px;
   line-height: 1.42857;
-  color: #AAAAAA;
+  color: #aaaaaa;
   font-weight: 400; }
 
 footer {
@@ -2322,12 +2335,19 @@ svg {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
+h1 small,
+h2 small,
+h3 small,
+h4 small,
+h5 small,
+h6 small {
   font-weight: 400;
   line-height: 1;
   color: #777; }
 
-h4 small, h5 small, h6 small {
+h4 small,
+h5 small,
+h6 small {
   font-size: 75%; }
 
 code {
@@ -2337,12 +2357,18 @@ code {
   background-color: #f9f2f4;
   border-radius: 4px; }
 
-code, kbd, pre, samp {
-  font-family: Menlo,Monaco,Consolas,"Courier New",monospace; }
+code,
+kbd,
+pre,
+samp {
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace; }
 
 img {
   vertical-align: middle;
   border: 0; }
+
+.selected {
+  border-bottom: 1px solid #088390 !important; }
 
 .btn-file {
   position: relative;
