@@ -7,7 +7,8 @@ import Grid from "material-ui/Grid";
 const style = {
   grid: {
     margin: "0 -15px",
-    width: "calc(100% + 30px)"
+    width: "100%"
+    // width: "calc(100% + 30px)"
     // '&:before,&:after':{
     //   display: 'table',
     //   content: '" "',

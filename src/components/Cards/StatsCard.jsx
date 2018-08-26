@@ -8,6 +8,7 @@ import CardContent from "material-ui/Card/CardContent";
 import CardHeader from "material-ui/Card/CardHeader";
 import CardActions from "material-ui/Card/CardActions";
 import Typography from "material-ui/Typography";
+import LocationOn from "@material-ui/icons/LocationOn";
 
 import statsCardStyle from "assets/jss/material-dashboard-pro-react/components/statsCardStyle";
 
@@ -22,18 +23,27 @@ function StatsCard({ ...props }) {
     statIconColor,
     iconColor
   } = props;
+
+  // it is assumed there is a separator in the title
+  // e.g. Twitter - San Francisco
+  let [company, location] = title.split("-");
+  company = company.trim();
+  location = location.trim();
+
   return (
     <Card className={classes.card}>
       <CardHeader
         classes={{
           root: classes.cardHeader + " " + classes[iconColor + "CardHeader"],
-          avatar: classes.cardAvatar
+          avatar: classes.cardAvatar,
+          title: classes.cardHeaderTitle
         }}
         avatar={<props.icon className={classes.cardIcon} />}
+        title={small}
       />
       <CardContent className={classes.cardContent}>
         <Typography component="p" className={classes.cardCategory}>
-          {title}
+          {company}
         </Typography>
         <Typography
           variant="headline"
@@ -41,9 +51,14 @@ function StatsCard({ ...props }) {
           className={classes.cardTitle}
         >
           {description}{" "}
-          {small !== undefined ? (
-            <small className={classes.cardTitleSmall}>{small}</small>
-          ) : null}
+        </Typography>
+        <Typography
+          className={classes.cardContentSubheading}
+          variant="subheading"
+          gutterBottom
+        >
+          <LocationOn style={{ fontSize: 20 }} />
+          {location}
         </Typography>
       </CardContent>
       <CardActions className={classes.cardActions}>

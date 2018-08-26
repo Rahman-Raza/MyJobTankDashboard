@@ -21,12 +21,29 @@ import {
   roseColor
 } from "assets/jss/material-dashboard-pro-react.jsx";
 
+const StatsCardBackground = "#088390";
+
 const statsCardStyle = {
-  card,
+  card: {
+    ...card,
+    backgroundColor: StatsCardBackground,
+    minHeight: "300px"
+  },
   cardHeader: {
     ...cardHeader,
-    float: "left",
-    textAlign: "center"
+    textAlign: "center",
+    position: "relative",
+    top: "20px",
+    width: "86px"
+  },
+  color: "#FFF",
+  cardHeaderTitle: {
+    color: "#FFF",
+    fontSize: "22px",
+    fontWeight: "400",
+    position: "absolute",
+    right: "-195px",
+    top: "20px"
   },
   orangeCardHeader,
   greenCardHeader,
@@ -34,9 +51,10 @@ const statsCardStyle = {
   blueCardHeader,
   purpleCardHeader,
   cardContent: {
-    textAlign: "right",
-    paddingTop: "10px",
-    padding: "15px 20px"
+    padding: "35px 20px 20px"
+  },
+  cardContentSubheading: {
+    color: "#FFF"
   },
   cardIcon: {
     width: "40px",
@@ -44,36 +62,46 @@ const statsCardStyle = {
     fill: "#fff"
   },
   cardAvatar: {
-    margin: '10px 8px 10px',
-    display: 'flex',
+    margin: "10px 8px 10px",
+    display: "flex"
   },
   cardCategory: {
+    ...defaultFont,
+    fontSize: "16px",
+    fontWeight: "400",
     marginBottom: "0",
-    color: grayColor,
-    margin: "0 0 10px",
-    ...defaultFont
+    color: "#FFF",
+    margin: "0 0 10px"
   },
   cardTitle: {
-    margin: "0",
     ...defaultFont,
-    fontSize: "1.825em"
+    color: "#FFF",
+    fontSize: "23px",
+    margin: "10px 0 15px"
   },
   cardTitleSmall: {
-    fontSize: "65%",
+    color: "#FFF",
     fontWeight: "400",
-    lineHeight: "1",
-    color: "#777"
+    lineHeight: "1"
   },
   cardActions: {
     ...cardActions,
-    padding: "10px 0 0 0!important"
+    backgroundColor: "#FAFAFA",
+    height: '50px',
+    margin: 0,
+    padding: "0 15px",
+    position: "absolute",
+    left: 0,
+    bottom: 0,
+    width: "100%"
   },
   cardStats: {
     lineHeight: "22px",
-    color: grayColor,
-    fontSize: "12px",
+    color: "#666",
+    fontSize: "14px",
     display: "inline-block",
-    margin: "0!important"
+    margin: "0!important",
+    paddingLeft: "20px"
   },
   cardStatsIcon: {
     position: "relative",
