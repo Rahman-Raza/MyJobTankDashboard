@@ -1,32 +1,35 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 
-import {withStyles} from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import grey from '@material-ui/core/colors/grey';
-import List from '@material-ui/core/List';
-import Grid from '@material-ui/core/Grid';
+import { withStyles } from "@material-ui/core/styles";
+import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
+import grey from "@material-ui/core/colors/grey";
+import List from "@material-ui/core/List";
+import Grid from "@material-ui/core/Grid";
 
-import LetterHead from './LetterHead';
-import ContentSection from './ContentSection';
-import NumberedListItem from './NumberedListItem';
-import ChipSection from './ChipSection';
-import ChecklistSection from './ChecklistSection';
-import CandidateCard from './CandidateCard';
-import Resume from './Resume';
+import LetterHead from "./LetterHead";
+import ContentSection from "./ContentSection";
+import NumberedListItem from "./NumberedListItem";
+import ChipSection from "./ChipSection";
+import ChecklistSection from "./ChecklistSection";
+import CandidateCard from "./CandidateCard";
+import Resume from "./Resume";
 
 const styles = {
   paper: {
-    boxShadow: '0 0 16px 0 #eee',
-    padding: '20px',
+    padding: "20px"
   },
+  sidebar: {
+    background: "#088390",
+    padding: "30px"
+  }
 };
 
 class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showResume: false,
+      showResume: false
     };
     this.toggleResume = this.toggleResume.bind(this);
   }
@@ -34,7 +37,7 @@ class Main extends Component {
   toggleResume() {
     console.log(this.state);
     this.setState({
-      showResume: !this.state.showResume,
+      showResume: !this.state.showResume
     });
   }
 
@@ -45,13 +48,13 @@ class Main extends Component {
           <Resume closeHandler={this.toggleResume} />
         ) : null}
 
-        <Grid container spacing={24}>
+        <Grid container spacing={0}>
           <Grid item sm={8}>
-            <Paper classes={{root: this.props.classes.paper}} elevation={0}>
+            <Paper classes={{ root: this.props.classes.paper }} elevation={0}>
               <LetterHead />
 
               <ContentSection heading="About Summary">
-                <p style={{fontSize: '14px', color: grey[700]}}>
+                <p style={{ fontSize: "14px", color: grey[700] }}>
                   Starbucks Corporation is an American coffee company and
                   coffeehouse chain. Starbucks was founded in Seattle,
                   Washington in 1971. As of November 2016, it operates 23,768
@@ -89,30 +92,30 @@ class Main extends Component {
               </ContentSection>
 
               <ContentSection heading="Required Skills">
-                <ChipSection subheading="Language" labels={['English']} />
-                <ChipSection subheading="Required Skills" labels={['Python']} />
+                <ChipSection subheading="Language" labels={["English"]} />
+                <ChipSection subheading="Required Skills" labels={["Python"]} />
               </ContentSection>
 
               <ContentSection heading="Compensation">
                 <ChipSection
                   subheading="Salary Range"
-                  labels={['100,000 - 150,000']}
+                  labels={["100,000 - 150,000"]}
                 />
                 <ChecklistSection
                   subheading="Benefits"
                   labels={[
-                    'Options',
-                    'Commisions',
-                    'Overtime pay',
-                    'Bonuses',
-                    'Travel / Meal / Housing Allowance',
+                    "Options",
+                    "Commisions",
+                    "Overtime pay",
+                    "Bonuses",
+                    "Travel / Meal / Housing Allowance"
                   ]}
                 />
               </ContentSection>
             </Paper>
           </Grid>
           <Grid item sm={4}>
-            <aside className="sidebar">
+            <aside style={styles.sidebar} className="sidebar">
               <CandidateCard
                 resumeToggler={this.toggleResume}
                 percentage="99"
