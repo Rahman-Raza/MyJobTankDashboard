@@ -1,91 +1,39 @@
-import React from "react";
-import PropTypes from "prop-types";
-// react plugin for creating charts
-import ChartistGraph from "react-chartist";
-// react plugin for creating vector maps
-import { VectorMap } from "react-jvectormap";
-
-// material-ui components
-import withStyles from "material-ui/styles/withStyles";
-import Tooltip from "material-ui/Tooltip";
-
+import Add from "@material-ui/icons/Add";
+import AddLocation from "@material-ui/icons/AddLocation";
 // @material-ui/icons
-import ContentCopy from "@material-ui/icons/ContentCopy";
-import Store from "@material-ui/icons/Store";
-import InfoOutline from "@material-ui/icons/InfoOutline";
-import Warning from "@material-ui/icons/Warning";
-import DateRange from "@material-ui/icons/DateRange";
-import LocalOffer from "@material-ui/icons/LocalOffer";
 import Email from "@material-ui/icons/Email";
-import ArrowUpward from "@material-ui/icons/ArrowUpward";
-import AccessTime from "@material-ui/icons/AccessTime";
-import Accessibility from "@material-ui/icons/Accessibility";
-import Refresh from "@material-ui/icons/Refresh";
-import Edit from "@material-ui/icons/Edit";
-import Place from "@material-ui/icons/Place";
-import ArtTrack from "@material-ui/icons/ArtTrack";
-
+import dashboardStyle from "assets/jss/material-dashboard-pro-react/views/dashboardStyle";
+import AddJob from "components/AddJob/AddJob.jsx";
+import IconCard from "components/Cards/IconCard.jsx";
+import RegularCard from "components/Cards/RegularCard.jsx";
+import StatsCard from "components/Cards/StatsCard.jsx";
+import IconButton from "components/CustomButtons/IconButton.jsx";
 // core components
 import GridContainer from "components/Grid/GridContainer.jsx";
 import ItemGrid from "components/Grid/ItemGrid.jsx";
-import Table from "components/Table/Table.jsx";
-import Button from "components/CustomButtons/Button.jsx";
-import StatsCard from "components/Cards/StatsCard.jsx";
-import ChartCard from "components/Cards/ChartCard.jsx";
-import IconCard from "components/Cards/IconCard.jsx";
-import ImagePriceCard from "components/Cards/ImagePriceCard.jsx";
-import Favorite from "@material-ui/icons/Favorite";
-import Add from "@material-ui/icons/Add";
-import IconButton from "components/CustomButtons/IconButton.jsx";
-import RegularCard from "components/Cards/RegularCard.jsx";
 import NavPills from "components/NavPills/NavPills.jsx";
-import Accordion from "components/Accordion/Accordion.jsx";
-import Info from "@material-ui/icons/Info";
-import LocationOn from "@material-ui/icons/LocationOn";
-import Gavel from "@material-ui/icons/Gavel";
-import FiberNew from "@material-ui/icons/FiberNew";
-import AddAlert from "@material-ui/icons/AddAlert";
-import Cancel from "@material-ui/icons/Cancel";
-import Input from "@material-ui/icons/Input";
-import AddJob from "components/AddJob/AddJob.jsx";
-
+// material-ui components
+import withStyles from "material-ui/styles/withStyles";
+import PropTypes from "prop-types";
+import React from "react";
+import SweetAlert from "react-bootstrap-sweetalert";
 import {
-  dailySalesChart,
-  emailsSubscriptionChart,
-  completedTasksChart
-} from "variables/charts";
-
-import dashboardStyle from "assets/jss/material-dashboard-pro-react/views/dashboardStyle";
-
-import priceImage1 from "assets/img/card-2.jpeg";
-import priceImage2 from "assets/img/card-3.jpeg";
-import priceImage3 from "assets/img/card-1.jpeg";
-
-import FaFacebookSquare from "react-icons/lib/fa/facebook-square";
+  GoogleMap,
+  Marker,
+  withGoogleMap,
+  withScriptjs
+} from "react-google-maps";
 import FaApple from "react-icons/lib/fa/apple";
+import FaFacebookSquare from "react-icons/lib/fa/facebook-square";
 import FaGooglePlusSquare from "react-icons/lib/fa/google-plus-square";
 import FaLinkedinSquare from "react-icons/lib/fa/linkedin-square";
-import FaTwitterSquare from "react-icons/lib/fa/twitter-square";
+import FaSnapchatSquare from "react-icons/lib/fa/snapchat-square";
 import FaTumblrSquare from "react-icons/lib/fa/tumblr-square";
 import FaTwitch from "react-icons/lib/fa/twitch";
-import FaSnapchatSquare from "react-icons/lib/fa/snapchat-square";
-import SweetAlert from "react-bootstrap-sweetalert";
-import sweetAlertStyle from "assets/jss/material-dashboard-pro-react/views/sweetAlertStyle.jsx";
-import {
-  withScriptjs,
-  withGoogleMap,
-  GoogleMap,
-  Marker
-} from "react-google-maps";
+import FaTwitterSquare from "react-icons/lib/fa/twitter-square";
 
-// @material-ui/icons
-import Map from "@material-ui/icons/Map";
-import AddLocation from "@material-ui/icons/AddLocation";
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
+// local components
+import LocalSearch from "./Search.js";
 
 const us_flag = require("assets/img/flags/US.png");
 const de_flag = require("assets/img/flags/DE.png");
@@ -286,6 +234,8 @@ class Dashboard extends React.Component {
           <ItemGrid xs={11} sm={11}>
             <RegularCard
               cardTitle={<span>Job Positions</span>}
+              cardSubtitle={<LocalSearch />}
+              subtitleAlign="right"
               content={
                 <NavPills
                   color="warning"

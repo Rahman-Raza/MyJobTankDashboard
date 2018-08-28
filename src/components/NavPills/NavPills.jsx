@@ -12,6 +12,9 @@ import Tabs from "material-ui/Tabs";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import ItemGrid from "components/Grid/ItemGrid.jsx";
 
+// local components
+import JobMenu from "./JobMenu.jsx";
+
 import navPillsStyle from "assets/jss/material-dashboard-pro-react/components/navPillsStyle.jsx";
 
 class NavPills extends React.Component {
@@ -82,6 +85,7 @@ class NavPills extends React.Component {
             />
           );
         })}
+        <JobMenu />
       </Tabs>
     );
     const tabContent = (

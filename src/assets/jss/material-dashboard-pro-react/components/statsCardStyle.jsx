@@ -27,6 +27,7 @@ const statsCardStyle = {
   card: {
     ...card,
     backgroundColor: StatsCardBackground,
+    borderRadius: "4px",
     minHeight: "300px"
   },
   cardHeader: {
@@ -87,7 +88,7 @@ const statsCardStyle = {
   cardActions: {
     ...cardActions,
     backgroundColor: "#FAFAFA",
-    height: '50px',
+    height: "50px",
     margin: 0,
     padding: "0 15px",
     position: "absolute",
