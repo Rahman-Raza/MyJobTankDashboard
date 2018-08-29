@@ -1,17 +1,17 @@
-import React from 'react';
+import React from "react";
 
-import Typography from '@material-ui/core/Typography';
-import grey from '@material-ui/core/colors/grey';
+import Typography from "@material-ui/core/Typography";
+import grey from "@material-ui/core/colors/grey";
 
 const styles = {
   root: {
-    padding: '20px',
+    padding: "20px"
   },
   heading: {
-    color: grey[700],
-    fontWeight: 700,
-    fontSize: '16px',
-  },
+    color: "#088390",
+    fontWeight: 400,
+    fontSize: "25px"
+  }
 };
 
 class ContentSection extends React.Component {

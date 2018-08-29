@@ -6,6 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import grey from "@material-ui/core/colors/grey";
 import List from "@material-ui/core/List";
 import Grid from "@material-ui/core/Grid";
+import Divider from "@material-ui/core/Divider";
 
 import LetterHead from "./LetterHead";
 import ContentSection from "./ContentSection";
@@ -22,6 +23,15 @@ const styles = {
   sidebar: {
     background: "#088390",
     padding: "30px"
+  },
+  responsibility: {
+    list: {
+      fontSize: "20px"
+    },
+    listItem: {
+      fontSize: "20px",
+      margin: "5px 0"
+    }
   }
 };
 
@@ -53,8 +63,19 @@ class Main extends Component {
             <Paper classes={{ root: this.props.classes.paper }} elevation={0}>
               <LetterHead />
 
-              <ContentSection heading="About Summary">
-                <p style={{ fontSize: "14px", color: grey[700] }}>
+              <Divider inset style={{ margin: "40px" }} />
+
+              <ul style={{ listStyleType: "none", fontSize: "20px" }}>
+                <li>- 0-2 Years Experience</li>
+                <li>- Bachelors degree</li>
+              </ul>
+
+              <ContentSection heading="Summary">
+                <Typography
+                  style={{ padding: "20px", lineHeight: "30px" }}
+                  variant="subheading"
+                  gutterBottom
+                >
                   Starbucks Corporation is an American coffee company and
                   coffeehouse chain. Starbucks was founded in Seattle,
                   Washington in 1971. As of November 2016, it operates 23,768
@@ -67,29 +88,33 @@ class Main extends Component {
                   drinkers with hand-made coffee based on lighter roasts, while
                   Starbucks nowadays uses automated espresso machines for
                   efficiency and safety reasons.
-                </p>
+                </Typography>
               </ContentSection>
 
               <ContentSection heading="Key Responsibilities">
-                <List>
-                  <NumberedListItem
-                    number="1"
-                    text="Knowledge of data structures, algorithms and computer science concepts relative to the platform."
-                  />
-                  <NumberedListItem
-                    number="2"
-                    text="Proficiency in development languages, tools, frameworks, utilities and technical dependencies."
-                  />
-                  <NumberedListItem
-                    number="3"
-                    text="Ability to write and value high quality, reusable software with minimal defects. Ability to learn and incorporate new technologies, concepts and development languages."
-                  />
-                  <NumberedListItem
-                    number="4"
-                    text="Ability to absorb new concepts and technical implementation of application architecture, infrastructure and security."
-                  />
-                </List>
+                <ol style={styles.responsibility.list}>
+                  {[
+                    "Knowledge of data structures, algorithms and computer science concepts relative to the platform.",
+                    "Proficiency in development languages, tools, frameworks, utilities and technical dependencies.",
+                    "Ability to write and value high quality, reusable software with minimal defects. Ability to learn and incorporate new technologies, concepts and development languages.",
+                    "Ability to absorb new concepts and technical implementation of application architecture, infrastructure and security."
+                  ].map(item => {
+                    return (
+                      <li>
+                        <Typography
+                          style={{ lineHeight: "30px" }}
+                          variant="subheading"
+                          gutterBottom
+                        >
+                          {item}
+                        </Typography>
+                      </li>
+                    );
+                  })}
+                </ol>
               </ContentSection>
+
+              <Divider />
 
               <ContentSection heading="Required Skills">
                 <ChipSection subheading="Language" labels={["English"]} />
@@ -99,7 +124,7 @@ class Main extends Component {
               <ContentSection heading="Compensation">
                 <ChipSection
                   subheading="Salary Range"
-                  labels={["100,000 - 150,000"]}
+                  labels={["100,000 - 150,000 $"]}
                 />
                 <ChecklistSection
                   subheading="Benefits"
@@ -118,47 +143,47 @@ class Main extends Component {
             <aside style={styles.sidebar} className="sidebar">
               <CandidateCard
                 resumeToggler={this.toggleResume}
-                percentage="99"
+                percentage={94}
               />
               <CandidateCard
                 resumeToggler={this.toggleResume}
-                percentage="99"
+                percentage={94}
               />
               <CandidateCard
                 resumeToggler={this.toggleResume}
-                percentage="99"
+                percentage={94}
               />
               <CandidateCard
                 resumeToggler={this.toggleResume}
-                percentage="99"
+                percentage={94}
               />
               <CandidateCard
                 resumeToggler={this.toggleResume}
-                percentage="99"
+                percentage={94}
               />
               <CandidateCard
                 resumeToggler={this.toggleResume}
-                percentage="99"
+                percentage={94}
               />
               <CandidateCard
                 resumeToggler={this.toggleResume}
-                percentage="99"
+                percentage={94}
               />
               <CandidateCard
                 resumeToggler={this.toggleResume}
-                percentage="99"
+                percentage={94}
               />
               <CandidateCard
                 resumeToggler={this.toggleResume}
-                percentage="99"
+                percentage={94}
               />
               <CandidateCard
                 resumeToggler={this.toggleResume}
-                percentage="99"
+                percentage={94}
               />
               <CandidateCard
                 resumeToggler={this.toggleResume}
-                percentage="99"
+                percentage={94}
               />
             </aside>
           </Grid>

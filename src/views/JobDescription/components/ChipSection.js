@@ -1,25 +1,31 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 
-import Chip from '@material-ui/core/Chip';
-import Typography from '@material-ui/core/Typography';
+import Chip from "@material-ui/core/Chip";
+import Typography from "@material-ui/core/Typography";
 
 const styles = {
   root: {
-    margin: '20px 0',
+    margin: "20px 0"
   },
   chip: {
-    margin: '5px',
-    fontSize: '14px',
-    padding: '0 5px',
-    backgroundColor: 'rgba(227,109,1,.1)',
-  },
+    backgroundColor: "#eeeeee",
+    fontSize: "14px",
+    justifyContent: "start",
+    margin: "5px",
+    padding: "0 5px",
+    width: "250px"
+  }
 };
 
 class ChipSection extends React.Component {
   render() {
     return (
       <section style={styles.root}>
-        <Typography variant="subheading" gutterBottom>
+        <Typography
+          style={{ color: "#088390" }}
+          variant="subheading"
+          gutterBottom
+        >
           {this.props.subheading}
         </Typography>
         {this.props.labels.map(current => {
