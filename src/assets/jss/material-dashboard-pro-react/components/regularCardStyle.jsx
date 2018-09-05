@@ -16,6 +16,8 @@ const regularCardStyle = {
   },
   cardTitle: {
     ...defaultFont,
+    display: "inline-block",
+    width: "50%",
     color: "#088390",
     textDecoration: "none",
     marginTop: "0",
@@ -38,6 +40,8 @@ const regularCardStyle = {
   },
   cardSubtitle: {
     ...defaultFont,
+    display: "inline-block",
+    width: "50%",
     color: "#999999",
     fontSize: "14px",
     margin: "0 0 10px"

@@ -84,18 +84,7 @@ class Dashboard extends React.Component {
       });
     return (
       <div className={classes.wrapper}>
-        <Sidebar
-          routes={dashboardRoutes}
-          logoText={"MyJobTank"}
-          logo={logo}
-          image={image}
-          handleDrawerToggle={this.handleDrawerToggle}
-          open={this.state.mobileOpen}
-          color="orange"
-          bgColor="black"
-          miniActive={this.state.miniActive}
-          {...rest}
-        />
+       
         <div className={mainPanel} ref="mainPanel">
           <Header
             sidebarMinimize={this.sidebarMinimize.bind(this)}

@@ -31,7 +31,7 @@ function StatsCard({ ...props }) {
   location = location.trim();
 
   return (
-    <Card className={classes.card}>
+    <Card className={classes.card} onClick={props.onClick}>
       <CardHeader
         classes={{
           root: classes.cardHeader + " " + classes[iconColor + "CardHeader"],
@@ -39,8 +39,10 @@ function StatsCard({ ...props }) {
           title: classes.cardHeaderTitle
         }}
         avatar={<props.icon className={classes.cardIcon} />}
-        title={small}
       />
+      <Typography variant="body2" className={classes.cardHeaderTitle} >
+        {small}
+      </Typography>
       <CardContent className={classes.cardContent}>
         <Typography component="p" className={classes.cardCategory}>
           {company}

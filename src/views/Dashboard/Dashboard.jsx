@@ -1,5 +1,7 @@
 import Add from "@material-ui/icons/Add";
 import AddLocation from "@material-ui/icons/AddLocation";
+import Section from "components/Section/Section.jsx";
+import Background from "assets/img/dashboard-bg.png";
 // @material-ui/icons
 import Email from "@material-ui/icons/Email";
 import dashboardStyle from "assets/jss/material-dashboard-pro-react/views/dashboardStyle";
@@ -230,8 +232,20 @@ class Dashboard extends React.Component {
       <div>
         <AddJob open={this.state.open} onClose={this.handleClose} />
 
-        <GridContainer>
-          <ItemGrid xs={11} sm={11}>
+         <Section
+            containerSize={0}
+            style={{
+              background: "url(" + Background + ") repeat-x",
+              backgroundSize: "fixed",
+              paddingBottom: "5%"
+            }}
+          >
+
+        <GridContainer dashGrid={true}>
+        <ItemGrid xs={1} sm={1}>
+        </ItemGrid>
+
+          <ItemGrid xs={10} sm={10} style={{marginTop: "50px"}}>
             <RegularCard
               cardTitle={<span>Job Positions</span>}
               cardSubtitle={<LocalSearch />}
@@ -249,7 +263,7 @@ class Dashboard extends React.Component {
                               <ItemGrid xs={12} sm={6} md={3} key={index}>
                                 <StatsCard
                                   onClick={() => {
-                                    this.openJobDescription;
+                                    this.openJobDescription();
                                   }}
                                   icon={opening.icon}
                                   iconColor="orange"
@@ -274,7 +288,7 @@ class Dashboard extends React.Component {
                               <ItemGrid xs={12} sm={6} md={3} key={index}>
                                 <StatsCard
                                   onClick={() => {
-                                    this.openJobDescription;
+                                    this.openJobDescription();
                                   }}
                                   icon={opening.icon}
                                   iconColor="blue"
@@ -299,7 +313,7 @@ class Dashboard extends React.Component {
                               <ItemGrid xs={12} sm={6} md={3} key={index}>
                                 <StatsCard
                                   onClick={() => {
-                                    this.openJobDescription;
+                                    this.openJobDescription();
                                   }}
                                   icon={opening.icon}
                                   iconColor="red"
@@ -321,42 +335,13 @@ class Dashboard extends React.Component {
             />
           </ItemGrid>
 
-          <ItemGrid xs={1}>
-            <IconButton
-              color="warning"
-              onClick={this.handleClickOpen}
-              customClass={classes.marginRight}
-            >
-              <Add className={classes.icons} />
-            </IconButton>
-          </ItemGrid>
-        </GridContainer>
 
-        <GridContainer>
-          <ItemGrid xs={12} sm={12} md={11}>
-            <IconCard
-              title="Here's a few jobs nearby"
-              iconColor="orange"
-              icon={AddLocation}
-              content={
-                <RegularMap
-                  googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXN1kYOQstGejzFAYynqkTyVDVMwzqHIA"
-                  loadingElement={<div style={{ height: `100%` }} />}
-                  containerElement={
-                    <div
-                      style={{
-                        height: `280px`,
-                        borderRadius: "6px",
-                        overflow: "hidden"
-                      }}
-                    />
-                  }
-                  mapElement={<div style={{ height: `100%` }} />}
-                />
-              }
-            />
-          </ItemGrid>
+
+
         </GridContainer>
+        </Section>
+
+
       </div>
     );
   }

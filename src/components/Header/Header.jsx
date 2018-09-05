@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-
+import Section from "components/Section/Section.jsx";
+import Background from "assets/img/navbar.png";
 // material-ui components
 import withStyles from "material-ui/styles/withStyles";
 import AppBar from "material-ui/AppBar";
@@ -51,24 +52,24 @@ function Header({ ...props }) {
       [classes.sidebarMinimizeRTL]: rtlActive
     });
   return (
+     <Section
+            containerSize={0}
+            style={{
+              background: "url(" + Background + ") repeat-x",
+              backgroundSize: "fixed",
+              paddingBottom: "5%"
+            }}
+          >
+            <Section
+            containerSize={1}
+            
+          >
     <AppBar className={classes.appBar + appBarClasses}>
       <Toolbar className={classes.container}>
-        <Hidden smDown>
-          <div className={sidebarMinimize}>
-            {props.miniActive ? (
-              <CustomIconButton color="white" onClick={props.sidebarMinimize}>
-                <ViewList className={classes.sidebarMiniIcon} />
-              </CustomIconButton>
-            ) : (
-              <CustomIconButton color="white" onClick={props.sidebarMinimize}>
-                <MoreVert className={classes.sidebarMiniIcon} />
-              </CustomIconButton>
-            )}
-          </div>
-        </Hidden>
+        
         <div className={classes.flex}>
           {/* Here we create navbar brand, based on route name */}
-          <Button href="#" className={classes.title}>
+          <Button href="#" syle={{marginLeft: "10%", color: "white !important"}} className={classes.title}>
             {makeBrand()}
           </Button>
         </div>
@@ -87,6 +88,8 @@ function Header({ ...props }) {
         </Hidden>
       </Toolbar>
     </AppBar>
+    </Section>
+    </Section>
   );
 }
 

@@ -25,11 +25,11 @@ const appStyle = theme => ({
     transitionDuration: ".2s, .2s, .35s",
     transitionTimingFunction: "linear, linear, ease",
     [theme.breakpoints.up("md")]: {
-      width: `calc(100% - ${drawerWidth}px)`
+      width: "100%",
     },
     overflow: "auto",
     position: "relative",
-    float: "right",
+    
     ...transition,
     maxHeight: "100%",
     width: "100%",
@@ -37,7 +37,7 @@ const appStyle = theme => ({
   },
   content: {
     marginTop: "70px",
-    padding: "30px 15px",
+    padding: "0px 0px",
     minHeight: "calc(100vh - 123px)"
   },
   container: { ...containerFluid },

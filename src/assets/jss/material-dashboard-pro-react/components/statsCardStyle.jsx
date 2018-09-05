@@ -43,7 +43,7 @@ const statsCardStyle = {
     fontSize: "22px",
     fontWeight: "400",
     position: "absolute",
-    right: "-195px",
+    right: "20px",
     top: "20px"
   },
   orangeCardHeader,
@@ -77,8 +77,8 @@ const statsCardStyle = {
   cardTitle: {
     ...defaultFont,
     color: "#FFF",
-    fontSize: "23px",
-    margin: "10px 0 15px"
+    fontSize: "20px",
+    margin: "1% 0 1.5%"
   },
   cardTitleSmall: {
     color: "#FFF",
@@ -99,7 +99,7 @@ const statsCardStyle = {
   cardStats: {
     lineHeight: "22px",
     color: "#666",
-    fontSize: "14px",
+    fontSize: "11px",
     display: "inline-block",
     margin: "0!important",
     paddingLeft: "20px"

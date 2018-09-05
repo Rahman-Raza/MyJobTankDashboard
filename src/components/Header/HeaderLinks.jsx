@@ -60,45 +60,9 @@ class HeaderLinks extends React.Component {
     });
     return (
       <div className={wrapper}>
-        <CustomInput
-          rtlActive={rtlActive}
-          formControlProps={{
-            className: classes.top + " " + classes.search
-          }}
-          inputProps={{
-            placeholder: rtlActive ? "بحث" : "Search",
-            inputProps: {
-              "aria-label": rtlActive ? "بحث" : "Search",
-              className: classes.searchInput
-            }
-          }}
-        />
-        <SearchButton
-          color="white"
-          aria-label="edit"
-          customClass={searchButton}
-        >
-          <Search className={classes.searchIcon} />
-        </SearchButton>
-        <IconButton
-          color="inherit"
-          aria-label="Dashboard"
-          className={rtlActive ? classes.buttonLinkRTL : classes.buttonLink}
-          classes={{
-            label: rtlActive ? classes.labelRTL : ""
-          }}
-        >
-          <Dashboard
-            className={
-              rtlActive ? classes.links + " " + classes.linksRTL : classes.links
-            }
-          />
-          <Hidden mdUp>
-            <p className={classes.linkText}>
-              {rtlActive ? "لوحة القيادة" : "Dashboard"}
-            </p>
-          </Hidden>
-        </IconButton>
+        
+      
+       
         <Manager className={managerClasses}>
           <Target>
             <IconButton

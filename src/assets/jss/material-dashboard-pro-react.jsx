@@ -27,8 +27,8 @@ const transition = {
 };
 
 const containerFluid = {
-  paddingRight: "15px",
-  paddingLeft: "15px",
+  paddingRight: "0px",
+  paddingLeft: "0px",
   marginRight: "auto",
   marginLeft: "auto",
   "&:before,&:after": {
