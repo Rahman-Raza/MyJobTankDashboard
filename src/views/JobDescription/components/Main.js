@@ -39,7 +39,7 @@ class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showResume: false
+      showResume: true
     };
     this.toggleResume = this.toggleResume.bind(this);
   }
