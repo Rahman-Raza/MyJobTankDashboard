@@ -14,7 +14,7 @@ const styles = {
         fontFamily: "Roboto",
         fontWeight: "400",
         borderRadius: "25px",
-        margin: "5px 10px",
+        margin: "10px",
         padding: "0 20px 0 5px",
 
         iconStyle: {

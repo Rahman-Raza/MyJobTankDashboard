@@ -232,116 +232,114 @@ class Dashboard extends React.Component {
       <div>
         <AddJob open={this.state.open} onClose={this.handleClose} />
 
-         <Section
-            containerSize={0}
-            style={{
-              background: "url(" + Background + ") repeat-x",
-              backgroundSize: "fixed",
-              paddingBottom: "5%"
-            }}
-          >
+        <Section
+          containerSize={0}
+          style={{
+            background: "url(" + Background + ") repeat-x",
+            backgroundSize: "fixed",
+            paddingBottom: "5%"
+          }}
+        >
+          <GridContainer dashGrid={true}>
+            <ItemGrid xs={1} sm={1} />
 
-        <GridContainer dashGrid={true}>
-        <ItemGrid xs={1} sm={1}>
-        </ItemGrid>
-
-          <ItemGrid xs={10} sm={10} style={{marginTop: "50px"}}>
-            <RegularCard
-              cardTitle={<span>Job Positions</span>}
-              cardSubtitle={<LocalSearch />}
-              subtitleAlign="right"
-              content={
-                <NavPills
-                  color="warning"
-                  tabs={[
-                    {
-                      tabButton: "New Positions",
-                      tabContent: (
-                        <div>
-                          <GridContainer>
-                            {this.state.newOpenings.map((opening, index) => (
-                              <ItemGrid xs={12} sm={6} md={3} key={index}>
-                                <StatsCard
-                                  onClick={() => {
-                                    this.openJobDescription();
-                                  }}
-                                  icon={opening.icon}
-                                  iconColor="orange"
-                                  title={opening.company + " - " + opening.city}
-                                  description={opening.role}
-                                  small="Tech"
-                                  statIcon={Email}
-                                  statText="Updated 2 Min ago..."
-                                />
-                              </ItemGrid>
-                            ))}
-                          </GridContainer>
-                        </div>
-                      )
-                    },
-                    {
-                      tabButton: "Open Positions",
-                      tabContent: (
-                        <div>
-                          <GridContainer>
-                            {this.state.openings.map((opening, index) => (
-                              <ItemGrid xs={12} sm={6} md={3} key={index}>
-                                <StatsCard
-                                  onClick={() => {
-                                    this.openJobDescription();
-                                  }}
-                                  icon={opening.icon}
-                                  iconColor="blue"
-                                  title={opening.company + " - " + opening.city}
-                                  description={opening.role}
-                                  small="Tech"
-                                  statIcon={Email}
-                                  statText="Updated 2 Min ago..."
-                                />
-                              </ItemGrid>
-                            ))}
-                          </GridContainer>
-                        </div>
-                      )
-                    },
-                    {
-                      tabButton: "Closed Positions",
-                      tabContent: (
-                        <div>
-                          <GridContainer>
-                            {this.state.newOpenings.map((opening, index) => (
-                              <ItemGrid xs={12} sm={6} md={3} key={index}>
-                                <StatsCard
-                                  onClick={() => {
-                                    this.openJobDescription();
-                                  }}
-                                  icon={opening.icon}
-                                  iconColor="red"
-                                  title={opening.company + " - " + opening.city}
-                                  description={opening.role}
-                                  small="Tech"
-                                  statIcon={Email}
-                                  statText="Updated 2 Min ago..."
-                                />
-                              </ItemGrid>
-                            ))}
-                          </GridContainer>
-                        </div>
-                      )
-                    }
-                  ]}
-                />
-              }
-            />
-          </ItemGrid>
-
-
-
-
-        </GridContainer>
+            <ItemGrid xs={10} sm={10} style={{ marginTop: "50px" }}>
+              <RegularCard
+                cardTitle={<span>Job Positions</span>}
+                cardSubtitle={<LocalSearch />}
+                subtitleAlign="right"
+                content={
+                  <NavPills
+                    color="warning"
+                    tabs={[
+                      {
+                        tabButton: "New Positions",
+                        tabContent: (
+                          <div>
+                            <GridContainer>
+                              {this.state.newOpenings.map((opening, index) => (
+                                <ItemGrid xs={12} sm={6} md={3} key={index}>
+                                  <StatsCard
+                                    onClick={() => {
+                                      this.openJobDescription();
+                                    }}
+                                    icon={opening.icon}
+                                    iconColor="orange"
+                                    title={
+                                      opening.company + " - " + opening.city
+                                    }
+                                    description={opening.role}
+                                    small="Tech"
+                                    statIcon={Email}
+                                    statText="Updated 2 Min ago..."
+                                  />
+                                </ItemGrid>
+                              ))}
+                            </GridContainer>
+                          </div>
+                        )
+                      },
+                      {
+                        tabButton: "Open Positions",
+                        tabContent: (
+                          <div>
+                            <GridContainer>
+                              {this.state.openings.map((opening, index) => (
+                                <ItemGrid xs={12} sm={6} md={3} key={index}>
+                                  <StatsCard
+                                    onClick={() => {
+                                      this.openJobDescription();
+                                    }}
+                                    icon={opening.icon}
+                                    iconColor="blue"
+                                    title={
+                                      opening.company + " - " + opening.city
+                                    }
+                                    description={opening.role}
+                                    small="Tech"
+                                    statIcon={Email}
+                                    statText="Updated 2 Min ago..."
+                                  />
+                                </ItemGrid>
+                              ))}
+                            </GridContainer>
+                          </div>
+                        )
+                      },
+                      {
+                        tabButton: "Closed Positions",
+                        tabContent: (
+                          <div>
+                            <GridContainer>
+                              {this.state.newOpenings.map((opening, index) => (
+                                <ItemGrid xs={12} sm={6} md={3} key={index}>
+                                  <StatsCard
+                                    onClick={() => {
+                                      this.openJobDescription();
+                                    }}
+                                    icon={opening.icon}
+                                    iconColor="red"
+                                    title={
+                                      opening.company + " - " + opening.city
+                                    }
+                                    description={opening.role}
+                                    small="Tech"
+                                    statIcon={Email}
+                                    statText="Updated 2 Min ago..."
+                                  />
+                                </ItemGrid>
+                              ))}
+                            </GridContainer>
+                          </div>
+                        )
+                      }
+                    ]}
+                  />
+                }
+              />
+            </ItemGrid>
+          </GridContainer>
         </Section>
-
-
       </div>
     );
   }

@@ -46,7 +46,6 @@ import Fingerprint from "@material-ui/icons/Fingerprint";
 import MonetizationOn from "@material-ui/icons/MonetizationOn";
 import LockOpen from "@material-ui/icons/LockOpen";
 import JobDescription from "views/JobDescription/JobDescription.js";
-import AddAJob from "views/AddAJob/AddAJob.jsx";
 
 var pages = [
   // {
@@ -82,8 +81,6 @@ var dashRoutes = [
     icon: "span",
     component: JobDescription
   },
-
-  { path: "/add-job", name: "Home", component: AddAJob },
 
   {
     collapse: true,

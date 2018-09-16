@@ -3,16 +3,18 @@ import React from "react";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Button from "@material-ui/core/Button";
+import Dialog from "@material-ui/core/Dialog";
 import { withStyles } from "@material-ui/core/styles";
 
 // @material-ui/icons
 import Add from "@material-ui/icons/Add";
 import CloudUpload from "@material-ui/icons/CloudUpload";
 
-const styles = {
-    root: {
+// custom
+import AddAJob from "views/AddAJob/AddAJob.jsx";
 
-    },
+const styles = {
+    root: {},
     addIconStyle: {
         border: "1px solid #088390",
         color: "#088390",
@@ -33,7 +35,8 @@ const styles = {
 
 class JobMenu extends React.Component {
     state = {
-        anchorEl: null
+        anchorEl: null,
+        open: false
     };
 
     handleClick = event => {
@@ -44,12 +47,19 @@ class JobMenu extends React.Component {
         this.setState({ anchorEl: null });
     };
 
+    openDialog = open => {
+        this.setState({ open });
+    };
+
     render() {
         const { anchorEl } = this.state;
         const { classes } = this.props;
 
         return (
             <div>
+                <Dialog fullScreen open={this.state.open}>
+                    <AddAJob closeHandler={e => this.openDialog(false)} />
+                </Dialog>
                 <Add
                     classes={{
                         root: classes.addIconStyle
@@ -64,7 +74,10 @@ class JobMenu extends React.Component {
                     open={Boolean(anchorEl)}
                     onClose={this.handleClose}
                 >
-                    <MenuItem classes={{ root: classes.menuItemStyle }}>
+                    <MenuItem
+                        onClick={e => this.openDialog(true)}
+                        classes={{ root: classes.menuItemStyle }}
+                    >
                         <Add classes={{ root: classes.menuItemIconStyle }} />{" "}
                         Add A Job Description
                     </MenuItem>
