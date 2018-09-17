@@ -22,7 +22,16 @@ const styles = {
   },
   sidebar: {
     background: "#088390",
-    padding: "30px"
+    padding: "30px",
+    position: "relative",
+    top: "-106px"
+  },
+  sidebarHeading: {
+    color: "#FFF",
+    display: "block",
+    padding: "0 50px 50px 0",
+    margin: "100px 0",
+    borderBottom: "1px solid #FFF"
   },
   responsibility: {
     list: {
@@ -141,6 +150,7 @@ class Main extends Component {
           </Grid>
           <Grid item sm={4}>
             <aside style={styles.sidebar} className="sidebar">
+              <h3 style={styles.sidebarHeading}>Matching Rate List</h3>
               <CandidateCard
                 resumeToggler={this.toggleResume}
                 percentage={94}
