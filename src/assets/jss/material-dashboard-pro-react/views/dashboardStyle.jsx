@@ -10,6 +10,12 @@ import buttonStyle from "assets/jss/material-dashboard-pro-react/components/butt
 
 
 const dashboardStyle = {
+  pagination: {
+    display: "inline-block",
+    paddingLeft: "0",
+    margin: "20px 0",
+    borderRadius: "4px",
+  },
   successText: {
     color: successColor
   },

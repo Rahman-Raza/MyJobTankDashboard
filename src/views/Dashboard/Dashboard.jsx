@@ -2,6 +2,7 @@ import Add from "@material-ui/icons/Add";
 import AddLocation from "@material-ui/icons/AddLocation";
 import Section from "components/Section/Section.jsx";
 import Background from "assets/img/dashboard-bg.png";
+import axios from "axios";
 // @material-ui/icons
 import Email from "@material-ui/icons/Email";
 import dashboardStyle from "assets/jss/material-dashboard-pro-react/views/dashboardStyle";
@@ -36,6 +37,7 @@ import FaTwitterSquare from "react-icons/lib/fa/twitter-square";
 
 // local components
 import LocalSearch from "./Search.js";
+import Pagination from "react-js-pagination";
 
 const us_flag = require("assets/img/flags/US.png");
 const de_flag = require("assets/img/flags/DE.png");
@@ -74,88 +76,176 @@ var mapData = {
 
 class Dashboard extends React.Component {
   state = {
+    paginator: [
+    {
+      limit: 10,
+      next: "?limit=10&offset=0",
+      offset: 0,
+      total_count: 100,
+      previous: null,
+
+    }
+    ],
+    activePage: 1,
     value: 0,
     alert: null,
     show: false,
     open: false,
     newOpenings: [
       {
-        company: "Twitter",
-        role: "Front End Software Engineer",
-        city: "San Francisco",
+        CompanyName: "Twitter",
+        JobPosition: "Front End Software Engineer",
+        Location: "San Francisco",
         icon: FaTwitterSquare
       },
       {
-        company: "Tumblr",
-        role: "Android Software Engineer",
-        city: "Santa Clara",
+        CompanyName: "Tumblr",
+        JobPosition: "Android Software Engineer",
+        Location: "Santa Clara",
         icon: FaTumblrSquare
       },
       {
-        company: "Twitch",
-        role: "Backend Software Engineer",
-        city: "New York",
+        CompanyName: "Twitch",
+        JobPosition: "Backend Software Engineer",
+        Location: "New York",
         icon: FaTwitch
       },
       {
-        company: "Snapchat",
-        role: "DevOps Software Engineer",
-        city: "Santa Monica",
+        CompanyName: "Snapchat",
+        JobPosition: "DevOps Software Engineer",
+        Location: "Santa Monica",
         icon: FaSnapchatSquare
       },
       {
-        company: "Google",
-        role: "Machine Learning Engineer",
-        city: "San Francisco",
+        CompanyName: "Google",
+        JobPosition: "Machine Learning Engineer",
+        Location: "San Francisco",
         icon: FaGooglePlusSquare
       },
       {
-        company: "Apple",
-        role: "IOS Software Engineer",
-        city: "Cupertino",
+        CompanyName: "Apple",
+        JobPosition: "IOS Software Engineer",
+        Location: "Cupertino",
         icon: FaApple
       },
       {
-        company: "Facebook",
-        role: "Backend Software Engineer",
-        city: "Menlo Park",
+        CompanyName: "Facebook",
+        JobPosition: "Backend Software Engineer",
+        Location: "Menlo Park",
         icon: FaFacebookSquare
       },
       {
-        company: "LinkedIn",
-        role: "Machine Learning Engineer",
-        city: "San Francisco",
+        CompanyName: "LinkedIn",
+        JobPosition: "Machine Learning Engineer",
+        Location: "San Francisco",
         icon: FaLinkedinSquare
       }
     ],
     closed: [],
     openings: [
       {
-        company: "Google",
-        role: "Machine Learning Engineer",
-        city: "San Francisco",
+        CompanyName: "Google",
+        JobPosition: "Machine Learning Engineer",
+        Location: "San Francisco",
         icon: FaGooglePlusSquare
       },
       {
-        company: "Apple",
-        role: "IOS Software Engineer",
-        city: "Cupertino",
+        CompanyName: "Apple",
+        JobPosition: "IOS Software Engineer",
+        Location: "Cupertino",
         icon: FaApple
       },
       {
-        company: "Facebook",
-        role: "Backend Software Engineer",
-        city: "Menlo Park",
+        CompanyName: "Facebook",
+        JobPosition: "Backend Software Engineer",
+        Location: "Menlo Park",
         icon: FaFacebookSquare
       },
       {
-        company: "LinkedIn",
-        role: "Machine Learning Engineer",
-        city: "San Francisco",
+        CompanyName: "LinkedIn",
+        JobPosition: "Machine Learning Engineer",
+        Location: "San Francisco",
         icon: FaLinkedinSquare
       }
     ]
   };
+
+  reloadPageData = (url) =>{
+var self = this;
+    axios.get(url)
+      
+      .then(function (response) {
+        console.log("heres the response from axios pagination call", response);
+        
+        if(response["status"]  == 200){
+          self.handlePagination(response.data["Data"]["paginator"]);
+          self.handleJobPostingsData(response.data["Data"]["items"]);
+
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+  }
+
+  //
+
+  handlePageChange = (pageNumber) =>  {
+    console.log(`active page is ${pageNumber}`);
+
+    var url = '';
+    
+    if(pageNumber - this.state.activePage == 1){
+       url = 'http://18.206.187.45:8080/jobpostingspagination' + this.state.paginator[0]["next"]
+    }
+    else if (pageNumber - this.state.activePage == -1){
+       url = 'http://18.206.187.45:8080/jobpostingspagination' + this.state.paginator[0]["previous"]
+    }
+
+    else {
+      url = '';
+    }
+
+    this.reloadPageData(url);
+
+    this.setState({activePage: pageNumber});
+  }
+
+
+
+  handlePagination = (response) =>{
+
+    var page = this.state.paginator;
+
+    page[0] = response;
+   this.setState({paginator: page});
+  }
+  handleJobPostingsData = (response) =>{
+    console.log("checking job postings items", response);
+    this.setState({newOpenings: response});
+  }
+  componentDidMount = () =>{
+    var self=this;
+    axios.get('http://18.206.187.45:8080/jobpostingspagination?limit=10&offset=0')
+      
+      .then(function (response) {
+        console.log("heres the response from axios pagination call", response);
+        
+        if(response["status"]  == 200){
+          self.handlePagination(response.data["Data"]["paginator"]);
+          self.handleJobPostingsData(response.data["Data"]["items"]);
+
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+
+  }
+
+
   handleChange = (event, value) => {
     this.setState({ value });
   };
@@ -224,6 +314,7 @@ class Dashboard extends React.Component {
   handleClose = () => {
     this.setState({ open: false });
   };
+  
 
   render() {
     const { classes } = this.props;
@@ -249,6 +340,7 @@ class Dashboard extends React.Component {
                 cardSubtitle={<LocalSearch />}
                 subtitleAlign="right"
                 content={
+                <div>
                   <NavPills
                     color="warning"
                     tabs={[
@@ -263,12 +355,12 @@ class Dashboard extends React.Component {
                                     onClick={() => {
                                       this.openJobDescription();
                                     }}
-                                    icon={opening.icon}
+                                    icon={FaGooglePlusSquare}
                                     iconColor="orange"
                                     title={
-                                      opening.company + " - " + opening.city
+                                      opening.CompanyName + " - " + opening.Location
                                     }
-                                    description={opening.role}
+                                    description={opening.JobPosition}
                                     small="Tech"
                                     statIcon={Email}
                                     statText="Updated 2 Min ago..."
@@ -290,12 +382,12 @@ class Dashboard extends React.Component {
                                     onClick={() => {
                                       this.openJobDescription();
                                     }}
-                                    icon={opening.icon}
+                                    icon={FaGooglePlusSquare}
                                     iconColor="blue"
                                     title={
-                                      opening.company + " - " + opening.city
+                                      opening.CompanyName + " - " + opening.Location
                                     }
-                                    description={opening.role}
+                                    description={opening.JobPosition}
                                     small="Tech"
                                     statIcon={Email}
                                     statText="Updated 2 Min ago..."
@@ -317,12 +409,12 @@ class Dashboard extends React.Component {
                                     onClick={() => {
                                       this.openJobDescription();
                                     }}
-                                    icon={opening.icon}
+                                    icon={FaGooglePlusSquare}
                                     iconColor="red"
                                     title={
-                                      opening.company + " - " + opening.city
+                                      opening.CompanyName + " - " + opening.Location
                                     }
-                                    description={opening.role}
+                                    description={opening.JobPosition}
                                     small="Tech"
                                     statIcon={Email}
                                     statText="Updated 2 Min ago..."
@@ -335,11 +427,25 @@ class Dashboard extends React.Component {
                       }
                     ]}
                   />
+
+
+            <Pagination
+          activePage={this.state.activePage}
+          itemsCountPerPage={10}
+          totalItemsCount={this.state.paginator[0]['total_count']}
+          pageRangeDisplayed={2}
+          onChange={this.handlePageChange}
+        />
+        </div>
                 }
               />
             </ItemGrid>
+
+        
           </GridContainer>
         </Section>
+
+
       </div>
     );
   }
